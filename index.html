@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Jquery Practica</title>
+</head>
+
+<body>
+    <nav>
+        <ul class="navigation-menu">
+            <li><input type="image" src="IMG/settings.svg" id="tableConfigButton"></li>
+        </ul>
+    </nav>
+    <main class="data-container">
+        <div class="title-container">
+            <h1>¡Tabla <span>dinámica</span> con Jquery! 😎</h1>
+            <button id="openFormBtn" class="open-form-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="add-data-svg" width="24" height="24" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12.5 21h-7.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v7.5" />
+                    <path d="M3 10h18" />
+                    <path d="M10 3v18" />
+                    <path d="M16 19h6" />
+                    <path d="M19 16v6" />
+                </svg>
+                Agregar nueva fila</button>
+        </div>
+        <table id="dataTable" class="data-table tablesorter">
+            <thead>
+                <tr>
+                    <!-- ! Encabezados -->
+                    <th>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-id-badge-2"
+                            width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M7 12h3v4h-3z" />
+                            <path
+                                d="M10 6h-6a1 1 0 0 0 -1 1v12a1 1 0 0 0 1 1h16a1 1 0 0 0 1 -1v-12a1 1 0 0 0 -1 -1h-6" />
+                            <path d="M10 3m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v3a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+                            <path d="M14 16h2" />
+                            <path d="M14 12h4" />
+                        </svg>
+                        Nombre completo
+                    </th>
+                    <th>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-description"
+                            width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                            <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                            <path d="M9 17h6" />
+                            <path d="M9 13h6" />
+                        </svg>
+                        Cargo
+                    </th>
+                    <th>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-cash" width="24"
+                            height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M7 9m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z" />
+                            <path d="M14 14m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                            <path d="M17 9v-2a2 2 0 0 0 -2 -2h-10a2 2 0 0 0 -2 2v6a2 2 0 0 0 2 2h2" />
+                        </svg>
+                        Sueldo
+                    </th>
+                    <th>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24"
+                            height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                            <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                        </svg>
+                        Sexo
+                    </th>
+                    <th>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-month"
+                            width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" />
+                            <path d="M16 3v4" />
+                            <path d="M8 3v4" />
+                            <path d="M4 11h16" />
+                            <path d="M7 14h.013" />
+                            <path d="M10.01 14h.005" />
+                            <path d="M13.01 14h.005" />
+                            <path d="M16.015 14h.005" />
+                            <path d="M13.015 17h.005" />
+                            <path d="M7.01 17h.005" />
+                            <path d="M10.01 17h.005" />
+                        </svg>
+                        Edad
+                    </th>
+                    <th>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin" width="24"
+                            height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                            <path
+                                d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+                        </svg>
+                        Dirección
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- ! Filas de la tabla -->
+                <tr>
+                </tr>
+            </tbody>
+        </table>
+        <div id="formContainer" class="form-container" style="display: none;">
+            <form id="dataForm">
+                <div class="form-title-container">
+                    <h2>Agregar datos a la tabla</h2>
+                </div>
+                <div class="field-container">
+                    <label for="nombreCompleto">Nombre completo:</label>
+                    <input type="text" id="nameField">
+                </div>
+                <div class="field-container">
+                    <label for="jobField">Cargo:</label>
+                    <input type="text" id="jobField">
+                </div>
+                <div class="field-container">
+                    <label for="salaryField">Sueldo:</label>
+                    <input type="text" id="salaryField">
+                </div>
+                <div class="field-container">
+                    <label for="genderField">Sexo:</label>
+                    <input type="text" id="genderField">
+                </div>
+                <div class="field-container">
+                    <label for="ageField">Edad:</label>
+                    <input type="text" id="ageField">
+                </div>
+                <div class="field-container">
+                    <label for="addressField">Dirección:</label>
+                    <input type="text" id="addressField">
+                </div>
+                <div class="buttons-container">
+                    <button type="submit" class="data-submit-button">
+                        Agregar fila</button>
+                    <button type="button" id="cancelFormBtn" class="data-form-cancel-button">
+                        Cancelar</button>
+                    <button type="reset" id="cancelFormBtn" class="data-form-cancel-button">
+                        Limpiar</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- ! Edit color form -->
+        <div id="formConfigContainer" class="form-container" style="display: none;">
+            <form id="editTableForm">
+                <div class="form-title-container">
+                    <h2>Configurar tabla</h2>
+                </div>
+                <div class="field-container">
+                    <label for="newTableColor">Color de la tabla:</label>
+                    <input type="color" name="newTableColor" id="newTableColorInput">
+                </div>
+                <div class="buttons-container">
+                    <button type="submit" class="data-submit-button">
+                        Aceptar</button>
+                    <button type="button" id="cancelTabelConfigFormBtn" class="data-form-cancel-button">
+                        Salir</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <div id="overlay" class="overlay"></div>
+    <script src="JS/index.js"></script>
+</body>
+
+</html>
